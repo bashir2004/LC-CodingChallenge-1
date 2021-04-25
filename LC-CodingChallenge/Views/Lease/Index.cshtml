@@ -1,0 +1,44 @@
+﻿@model IEnumerable<LC_CodingChallenge.Repository.Models.Lease>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<table class="table">
+    <tr>
+        <th>#</th>
+        <th>Name</th>
+        <th>Start Date</th>
+        <th>End Date</th>
+        <th>Payment Amount</th>
+        <th>Number of Payments</th>
+        <th>Interest Rate</th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.RowNumber)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.StartDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EndDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PaymentAmount)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NumberOfPayments)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.InterestRatePct)
+        </td>
+    </tr>
+}
+
+</table>

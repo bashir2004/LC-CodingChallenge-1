@@ -1,0 +1,28 @@
+﻿@model Dictionary<int, string>
+@{
+    /**/
+
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@using (Html.BeginForm("Index", "FileUpload", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <div class="jumbotron">
+        <h3>Upload CSV File</h3>
+
+        <div class="form-group">
+            <label for="exampleInputEmail1">File</label>
+            <input type="file" class="form-control" name="postedFile" required accept=".csv" />
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+}
+@foreach (var item in Model)
+{
+    <div class="alert @(item.Key == 1 ? "alert-success" : "alert-danger") role="alert">
+        @Html.DisplayFor(modelItem => item.Value)
+    </div>
+
+}
